@@ -1,10 +1,25 @@
 from pydantic import BaseModel
 from typing import Optional
+from .job import JobResponse
 
-class CompanyCreate(BaseModel):
+class CompanyBase(BaseModel):
     name:str
-    location:str
+    email:str
+    phone:str
+    
+class CompanyCreate(BaseModel):
+    pass
 
 class CompanyUpdate(BaseModel):
     name:Optional[str]=None
-    location:Optional[str]=None
+    email:Optional[str]=None
+    phone:Optional[str]=None
+   
+class companyResponse(CompanyBase):
+    id:int
+    jobs:list[JobResponse]
+
+    class config:
+        from_attributes=True
+
+
