@@ -1,12 +1,9 @@
-from sqlalchemy import Column,Integer,String,Enum,relationship
-from sqlalchemy.orm import declarative_base
-from database import base,engine,SessionalLocal
 
+from sqlalchemy import Column,Integer,String,Enum,ForeignKey
+from database import Base,engine,SessionLocal
+from sqlalchemy.orm import relationship
 
-
-Base = declarative_base()
-
-class Company(Base):
+class CompanyBase(Base):
     __tablename__="companies"
     id=Column(Integer,primary_key=True,index=True)
     name=Column(String,nullable=False,index=True)

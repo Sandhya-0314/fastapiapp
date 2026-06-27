@@ -1,6 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional 
-
+from typing import Optional
 
 class JobBase(BaseModel):
     title:str
@@ -21,5 +20,5 @@ class JobResponse(JobBase):
     id:int
     company_id:int
 
-    class config:
+    class Config:
         from_attributes=True
