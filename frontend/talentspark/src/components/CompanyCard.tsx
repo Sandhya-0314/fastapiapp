@@ -1,9 +1,24 @@
-function CompanyCard(){
-    return(
+
+import type {Company} from "../types/company";
+
+type Props={
+    companies:Company[];
+}
+function CompanyCard({companies}:Props){;
+ 
+    
+    return (
         <div>
-            <h1>Google</h1>
-            <p>Welcome to Google </p>
+            {companies.map((company) => (
+                <div key={company.id}>
+                    <h1>{company.name}</h1>
+                    <p>Email: {company.email}</p>
+                    <p>Phone: {company.phone}</p>
+                    <p>Location: {company.location}</p>
+                    <hr></hr>
+                </div>
+            ))}         
         </div>
     )
 }
-export default CompanyCard
+export default CompanyCard;
