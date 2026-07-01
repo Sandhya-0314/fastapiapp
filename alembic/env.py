@@ -6,6 +6,7 @@ from alembic import context
 from database import Base
 from models.company import Company
 from models.job import Job
+from models.users import User
 
 # THIS IS CORRECT
 target_metadata = Base.metadata
